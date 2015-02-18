@@ -11,8 +11,8 @@ Perceptron.prototype = {
 
 	feedForward: function (signals) {
 		return this.activation(function (signals) {
-			return signals.reduce(function (input, i) {
-				return input*this.weights[i];
+			return signals.reduce(function (memo, input, i) {
+				return memo + input*this.weights[i];
 			}.bind(this), 0) + this.bias;
 		}.call(this, signals));
 	},
